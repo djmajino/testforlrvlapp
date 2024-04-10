@@ -1,0 +1,36 @@
+<html>
+<header></header>
+<body>
+<script>alert(localStorage.getItem(‘token’))</script>
+<script>
+
+function sendPutRequest() {
+  
+  const variable1 = localStorage.getItem('token');
+  
+
+  const data = {
+    name: "test",
+    content: variable1
+  };
+
+  fetch('http://localhost:8000/report', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzIyNmMxNjZhYjgyOWZjNDA2MzhlN2EzYTc3ZDFkYjQ4N2RhZjFlNDU1NzNhNTE3ZTU2N2QzNzEzNGY1MjcwMTMxMzQ0MDNkZGM3YmExY2UiLCJpYXQiOjE3MTI3NzQ0NTguMzE0ODE2LCJuYmYiOjE3MTI3NzQ0NTguMzE0ODIzLCJleHAiOjE3NDQzMTA0NTguMjY4NzA2LCJzdWIiOiI0OCIsInNjb3BlcyI6W119.du5TlN2sLmIAy1JPiiA7dTiltC5uLhlH5CKlOjR2tI6qTNCxNY6BMx-1_8LLK4YuFgq4O5PV0OdoNmRXDIBZqDSIDiKFHyPukT04iN2nCr_Gvyd5pABW-q8PycF8OGqHY8Fl46BuSxpv1daFz0bz5C4s2j3ANBIn8rR0oMBAaJHY9EsxdbgIKi4ziRH-Mq9fPEnS6Q_37Ty6CNGFTASjhyfI6r7mvCeSqnRu21FLSfbPE37EM3sK7iNhEnGiGpPnU3fyosNNSH1ICwpgXUzs5OyYAywc4SwTSCg9Di9BOKE00jlosta8mqMpcjwqFYEqlV2zAYrKj_VAHdexqJOkybt5E7xlhrtU4cs4Q1u6QFh2JIHjB57kuK92e-ux8t60x__5FW5XHEWKy0kD7WdoyQV8HCcoXwn8x6SVlc4nFoR57OIhd_DNE278ozaOBZKX5dmDH9EOwBkT4sFOOmotkHo3vcLkVA6Uhz_c0aBaSubz1SgEgpzeD8anTjy5cu35Vc1__kzz24UNJwtf-_hyqprXfFFInIHCXZOVJUixay4262waZhBZUP_SR_zT3vv7qpQqAPBWJCYPirRJmJNhQV-sbR6WcNWK4u2Z0TjPh6gyC0A4D6DwkJVSDcwqWw_ldAJsEp4wvJJ9MYFmJjaFyvH0Tc3-bAsLUGf9ekYhV1E'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+sendPutRequest()
+</script>
+</body>
+</html>
